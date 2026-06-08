@@ -1,6 +1,7 @@
 channels:
 - conda-forge
 dependencies:
+  - papermill
   - bagofholding =0.1.12
   - flowrep =0.5.0
   - python_workflow_definition =0.1.5

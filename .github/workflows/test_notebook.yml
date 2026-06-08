@@ -1,0 +1,31 @@
+
+name: Test Notebook
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  run-notebook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up conda environment
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          python-version: "3.13"
+          environment-file: .binder/environment.yml
+          activate-environment: true
+          auto-activate-base: false
+
+      - name: Execute notebook
+        shell: bash -el {0}
+        run: papermill demo.ipynb /tmp/demo_out.ipynb --no-progress-bar
+
+      - name: Upload executed notebook
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: executed-notebook
+          path: /tmp/demo_out.ipynb
