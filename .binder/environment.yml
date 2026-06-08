@@ -2,6 +2,7 @@ channels:
 - conda-forge
 dependencies:
   - papermill
+  - ipykernel
   - ipytree
   - python =3.13
   - bagofholding =0.1.11
