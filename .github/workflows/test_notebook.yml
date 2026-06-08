@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: "3.13"
           environment-file: .binder/environment.yml
-          activate-environment: true
+          activate-environment: demo
           auto-activate-base: false
 
       - name: Register kernel
@@ -25,7 +25,7 @@ jobs:
 
       - name: Execute notebook
         shell: bash -el {0}
-        run: papermill demo.ipynb /tmp/demo_out.ipynb --no-progress-bar
+        run: papermill demo.ipynb /tmp/demo_out.ipynb --kernel python3 --no-progress-bar
 
       - name: Upload executed notebook
         if: always()
