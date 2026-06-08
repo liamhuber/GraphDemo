@@ -1,0 +1,1 @@
+A demo for the current state of `flowrep` and `semantikon` [Binder](https://mybinder.org/v2/gh/liamhuber/GraphDemo/HEAD?urlpath=%2Fdoc%2Ftree%2Fdemo.ipynb)
